@@ -12,8 +12,11 @@
 <body>
 
 <%! String userdbEmail;
-
+String username;
 String userdbPsw;
+
+String userclass;
+String userdept;
 
 
 %>
@@ -38,7 +41,7 @@ String dbpsw = "123456";
 
 
 
-String sql = "select * from fy where email=? and password=?";
+String sql  = "select * from fy where email=? and password=? ";
 String sql1 = "select * from se where email=? and password=?";
 String sql2 = "select * from te where email=? and password=?";
 String sql3 = "select * from be where email=? and password=?";
@@ -50,8 +53,6 @@ String email = request.getParameter("email");
 String password = request.getParameter("password");
 String course = request.getParameter("class");
 
-//if(course.equals("FY"))
-//{
 
 
 try{
@@ -59,15 +60,41 @@ try{
 Class.forName(driverName);
 
 con = DriverManager.getConnection(url, user, dbpsw);
-if((course.equals("FY") && !(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals(""))))
+if((!(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals(""))))
 
 {
+	if(course.equals("FY"))
+	{	
+       ps = con.prepareStatement(sql);
 
-ps = con.prepareStatement(sql);
+       ps.setString(1, email);
 
-ps.setString(1, email);
+       ps.setString(2, password);
+	}   
+	else if(course.equals("SE"))
+	{	
+       ps = con.prepareStatement(sql1);
 
-ps.setString(2, password);
+       ps.setString(1, email);
+
+       ps.setString(2, password);
+	}   
+	else if(course.equals("TE"))
+	{	
+       ps = con.prepareStatement(sql2);
+
+       ps.setString(1, email);
+
+       ps.setString(2, password);
+	}   
+	else if(course.equals("BE"))
+	{	
+       ps = con.prepareStatement(sql3);
+
+       ps.setString(1, email);
+
+       ps.setString(2, password);
+	}   
 
 
 rs = ps.executeQuery();
@@ -80,213 +107,76 @@ userdbEmail = rs.getString("email");
 
 userdbPsw = rs.getString("password");
 
+userclass=rs.getString("class");
 
+userdept=rs.getString("department");
 
-if(email.equals(userdbEmail) && password.equals(userdbPsw))
+username=rs.getString("name");
+
+if(email.equals(userdbEmail) && password.equals(userdbPsw) && course.equals("FY"))
 
 {
 
-session.setAttribute("email",userdbEmail);
-session.setAttribute("course",course);
+	session.setAttribute("username",username);
+	session.setAttribute("course",course);
+	session.setAttribute("userdept",userdept);
 
 
 response.sendRedirect("welcome.jsp"); 
 
 }
-
-
-}
-}
-//}
-//catch(SQLException sqe)
-
-//{
-
-//out.println("Cant be blank");
-
-//} 
-
-//{
-//	out.println("Essentials needed");
-//}
-
-
-//else if(course.equals("SE"))
-//{
-else if((course.equals("SE") && !(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals(""))))
-{
-
-//try{
-
-//Class.forName(driverName);
-
-//con = DriverManager.getConnection(url, user, dbpsw);
-
-ps = con.prepareStatement(sql1);
-
-ps.setString(1, email);
-
-ps.setString(2, password);
-
-
-rs = ps.executeQuery();
-
-if(rs.next())
-
-{ 
-
-userdbEmail = rs.getString("email");
-
-userdbPsw = rs.getString("password");
-
-
-
-if(email.equals(userdbEmail) && password.equals(userdbPsw) && course.equals("SE"))
+else if(email.equals(userdbEmail) && password.equals(userdbPsw) && course.equals("SE"))
 
 {
 
-session.setAttribute("email",userdbEmail);
-session.setAttribute("course",course);
+	session.setAttribute("username",username);
+	session.setAttribute("course",course);
+	session.setAttribute("userdept",userdept);
 
 
 response.sendRedirect("welcome.jsp"); 
 
-} 
 }
-//}
-//catch(SQLException sqe)
-
-//{
-
-//out.println("Cant be blank");
-
-//} 
-}
-//else{
-	//out.println("Essentials needed");
-//}
-//}
-
-//else if(course.equals("TE"))
-//{
-else if((course.equals("TE") && !(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals(""))))
+else if(email.equals(userdbEmail) && password.equals(userdbPsw) && course.equals("TE"))
 
 {
 
-//try{
-
-//Class.forName(driverName);
-
-//con = DriverManager.getConnection(url, user, dbpsw);
-
-ps = con.prepareStatement(sql2);
-
-ps.setString(1, email);
-
-ps.setString(2, password);
-
-
-rs = ps.executeQuery();
-
-if(rs.next())
-
-{ 
-
-userdbEmail = rs.getString("email");
-
-userdbPsw = rs.getString("password");
-
-
-
-if(email.equals(userdbEmail) && password.equals(userdbPsw) && course.equals("TE"))
-
-{
-
-session.setAttribute("email",userdbEmail);
-session.setAttribute("course",course);
+	session.setAttribute("username",username);
+	session.setAttribute("course",course);
+	session.setAttribute("userdept",userdept);
 
 
 response.sendRedirect("welcome.jsp"); 
 
-} 
 }
-/*}
-catch(SQLException sqe)
+else if(email.equals(userdbEmail) && password.equals(userdbPsw) && course.equals("BE"))
 
 {
 
-out.println("Cant be blank");
-
-} 
-*/
-}
-//else{
-	//out.println("Essentials needed");
-//}
-//}
-
-//else if(course.equals("BE"))
-//{
-else if((course.equals("BE") && !(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals(""))))
-
-{
-
-//try{
-
-//Class.forName(driverName);
-
-//con = DriverManager.getConnection(url, user, dbpsw);
-
-ps = con.prepareStatement(sql3);
-
-ps.setString(1, email);
-
-ps.setString(2, password);
-
-
-rs = ps.executeQuery();
-
-if(rs.next())
-
-{ 
-
-userdbEmail = rs.getString("email");
-
-userdbPsw = rs.getString("password");
-
-
-
-if(email.equals(userdbEmail) && password.equals(userdbPsw) && course.equals("BE"))
-
-{
-
-session.setAttribute("email",userdbEmail);
-session.setAttribute("course",course);
+	session.setAttribute("username",username);
+	session.setAttribute("course",course);
+	session.setAttribute("userdept",userdept);
 
 
 response.sendRedirect("welcome.jsp"); 
 
-} 
 }
-//}
-//catch(SQLException sqe)
-
-//{
-
-//out.println("Cant be blank");
-
-//} 
-}
-
-else{
+else
+{
 	%>
 	<script language="javascript">
-	alert("Please fill all details");
+	alert("Wrong Details");
 	</script>
 	
 	<%
-//	response.sendRedirect("login.jsp");
+	
 }
+
+
+}
+}
+
+
 }
 catch(SQLException sqe)
 
@@ -301,6 +191,12 @@ catch(SQLException sqe)
 } 
 
 %>
-</body>
+    
+	<script language="javascript">
+	alert("Something went wrong");
+	location.replace("login.html")
+	</script>
+	
+	</body>
 
 </html>

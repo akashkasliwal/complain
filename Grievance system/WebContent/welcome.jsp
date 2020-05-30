@@ -10,13 +10,13 @@
 
 <body>
 
-<p>Welcome, <%=session.getAttribute("email")%></p>
+<center><h2><p>Welcome, <%=session.getAttribute("username")%></p></h2></center>
 
 
 <!--  String course=request.getParameter("course");-->
 <!--  <img src="C:\Users\Shri\Downloads\akash\akash\a.png" align="right" width="50%">-->
 <form action="complain.jsp" method="Post" name="myform" id="regform"> 
-        <h1>Complain form</h1>
+        <h2>Complain form</h2>
         
             
           <label for="query">Choose your complain field:</label>

@@ -1,10 +1,12 @@
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
 <title>Login Page</title>
 <script>  
-function validateform(){  
-var email=document.LoginForm.email.value;  
-var password=document.LoginForm.password.value;  
+function validate(){  
+var email=document.loginForm.email.value;  
+var password=document.loginForm.password.value;  
   
 if (email==null || email==""){  
   alert("Email can't be blank...");  
@@ -17,12 +19,13 @@ else if(password==null || password==""){
 else if(password.length<6){  
 		  alert("Password must be at least 6 characters long.");  
 		  return false;  
-		  }  
+		  }
+return true;
 }  
 </script>
 </head>
 <body>
-<form name="loginForm" method="post" action="login.jsp" onsubmit="return validateform()" id="regform">
+<form name="loginForm" method="post" action="login.jsp" onsubmit="return validate()" id="regform">
 <h1>Login</h1>
          Email:     <input type="email" name="email"><br/>  
          Password: <input type="password" name="password"><br/> 

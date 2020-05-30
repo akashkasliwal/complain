@@ -9,6 +9,8 @@ String pass=request.getParameter("pass");
 //String city_name=request.getParameter("city_name");
 String email=request.getParameter("email");
 String course=request.getParameter("class");
+String dept=request.getParameter("dept");
+
 
 if(course.equals("FY"))
 {
@@ -27,7 +29,7 @@ rs.next();
 String Countrow = rs.getString(1);
 //out.println(Countrow);
 if(Countrow.equals("0")){
-int i=st.executeUpdate("insert into fy values('"+first_name+"','"+email+"','"+pass+"','"+course+"')");
+int i=st.executeUpdate("insert into fy values('"+first_name+"','"+email+"','"+pass+"','"+course+"','"+dept+"',null)");
 System.out.println("successfull");
 %>
 <script language="javascript">
@@ -55,7 +57,7 @@ e.printStackTrace();
 }
 
 
-else if(course.equals("SE"))
+else if(course.equals("SE") )
 {
    try
    {
@@ -72,7 +74,7 @@ else if(course.equals("SE"))
 	String Countrow = rs.getString(1);
 	//System.out.println(Countrow);
 	if(Countrow.equals("0")){
-	int i=st.executeUpdate("insert into se values('"+first_name+"','"+email+"','"+pass+"','"+course+"')");
+	int i=st.executeUpdate("insert into se values('"+first_name+"','"+email+"','"+pass+"','"+course+"','"+dept+"',null)");
 	System.out.println("successfull");
 	%>
 	<script language="javascript">
@@ -115,7 +117,7 @@ else if(course.equals("TE"))
 	String Countrow = rs.getString(1);
 	//out.println(Countrow);
 	if(Countrow.equals("0")){
-	int i=st.executeUpdate("insert into te values('"+first_name+"','"+email+"','"+pass+"','"+course+"')");
+	int i=st.executeUpdate("insert into te values('"+first_name+"','"+email+"','"+pass+"','"+course+"','"+dept+"',null)");
 	System.out.println("successfull");
 	%>
 	<script language="javascript">
@@ -159,7 +161,7 @@ else
 	String Countrow = rs.getString(1);
 	//out.println(Countrow);
 	if(Countrow.equals("0")){
-	int i=st.executeUpdate("insert into be values('"+first_name+"','"+email+"','"+pass+"','"+course+"')");
+	int i=st.executeUpdate("insert into be values('"+first_name+"','"+email+"','"+pass+"','"+course+"','"+dept+"',null)");
 	System.out.println("successfull");
 	%>
 	<script language="javascript">

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>Thanks,<h2> <%=session.getAttribute("email")%> </h2></h2>,your complain will be taken into consideration soon...</p>
+<p>Thanks,<h2> <%=session.getAttribute("username")%> </h2></h2>,your complain will be taken into consideration soon...</p>
 <p><a href="logout.jsp">Logout</a>
 </body>
 </html>
