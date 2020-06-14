@@ -29,7 +29,6 @@ int rs=st.executeUpdate("update fy set password='"+Newpass+"' where email='"+ema
 //if(pass.equals(currentPassword)){
 //Statement st1=con.createStatement();
 //int i=st1.executeUpdate("update login set password='"+Newpass+"' where id='"+id+"'");
-out.println("Password changed successfully");
 
 st.close();
 }
@@ -45,7 +44,7 @@ int rs=st.executeUpdate("update se set password='"+Newpass+"' where email='"+ema
 //if(pass.equals(currentPassword)){
 //Statement st1=con.createStatement();
 //int i=st1.executeUpdate("update login set password='"+Newpass+"' where id='"+id+"'");
-out.println("Password changed successfully");
+
 
 st.close();
 }
@@ -61,7 +60,7 @@ int rs=st.executeUpdate("update te set password='"+Newpass+"' where email='"+ema
 //if(pass.equals(currentPassword)){
 //Statement st1=con.createStatement();
 //int i=st1.executeUpdate("update login set password='"+Newpass+"' where id='"+id+"'");
-out.println("Password changed successfully");
+
 
 st.close();
 }
@@ -77,7 +76,7 @@ int rs=st.executeUpdate("update be set password='"+Newpass+"' where email='"+ema
 //if(pass.equals(currentPassword)){
 //Statement st1=con.createStatement();
 //int i=st1.executeUpdate("update login set password='"+Newpass+"' where id='"+id+"'");
-out.println("Password changed successfully");
+
 
 st.close();
 con.close();
@@ -91,6 +90,9 @@ catch(Exception e){
 out.println(e);
 }
 %>
-<a href="login.html">login</a>
+<script language="javascript">
+	alert("password changed successfully");
+	location.replace("login.html")
+	</script>
 </body>
 </html>

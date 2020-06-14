@@ -1,15 +1,35 @@
+<!DOCTYPE html>
 <html>
-
 <head>
+<meta charset="ISO-8859-1">
+<title>Complain reister</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<title>Welcome</title>
+<link rel="stylesheet" type="text/css" href="ak.css">  
 
 </head>
+<body bgcolor="white">
+<div class="top">
+      
+    <img src="logo.jpg" align="left" width="8%">
+        <h1><center><p style="color:Yellow">Sanjivani College of Engineering,Kopargaon</p></center></h1>
+    <h2><p style="color:white"><marquee direction="left">Student Grievance System</marquee></p></h2>
+   </div>
 
-<body>
-
+    <div class="fixed-header">
+       
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="register.html">Registration</a>
+                <a href="login.html">Login</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin.html">admin login</a>
+                 <a href="index.html">logout</a>
+            </nav>
+       
+        
+    </div>
+<div>
 <center><h2><p>Welcome, <%=session.getAttribute("username")%></p></h2></center>
 
 
@@ -36,9 +56,9 @@
          <input type="reset" value="reset">  
          <input type="submit" value="submit"> 
         </form>
-       
-
-
+</div>
+<div class="fixed-footer">
+        <div class="container"><center>Copyright &copy; to Akash Kasliwal</center></div>        
+    </div>
 </body>
-
 </html>

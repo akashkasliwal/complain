@@ -11,7 +11,10 @@ String email=request.getParameter("email");
 String course=request.getParameter("class");
 String dept=request.getParameter("dept");
 
-
+//Class.forName("com.mysql.jdbc.Driver");
+//System.out.println("connected");
+//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:8080/grievance", "root", "123456");
+//System.out.println("Successfull");
 if(course.equals("FY"))
 {
 try
@@ -42,6 +45,7 @@ else{
 	%>
 	<script language="javascript">
 	alert("User name or Email already exists !");
+	location.replace("login.html");
 	</script>
 	<%
 }
@@ -79,6 +83,7 @@ else if(course.equals("SE") )
 	%>
 	<script language="javascript">
 	alert("Registered successfully !");
+	location.replace("login.html");
 	</script>
 	<%
 	}
@@ -122,6 +127,7 @@ else if(course.equals("TE"))
 	%>
 	<script language="javascript">
 	alert("Registered successfully !");
+	location.replace("login.html");
 	</script>
 	<%
 	}
@@ -166,6 +172,7 @@ else
 	%>
 	<script language="javascript">
 	alert("Registered successfully !");
+	location.replace("login.html");
 	</script>
 	<%
 	}
@@ -189,6 +196,6 @@ e.printStackTrace();
 %>
 
 	
-<p><a href="login.html"><h3>login</h3></a><p>
+
 </body>
 </html>        

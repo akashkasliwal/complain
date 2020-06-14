@@ -3,33 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Registration</title>
-<script>  
-function validateform(){  
-var name=document.myform.uname.value;  
-var password=document.myform.pass.value;
-var email=document.myform.email.value;
-  
-if (name==null || name==""){  
-  alert("Please enter Name");  
-  return false;  
-}
-else if(email==null || email==""){  
-	  alert("Please enter email..");  
-	  return false;  
-	  }
-else if(password.length<6){  
-  alert("Password must be at least 6 characters long.");  
-  return false;  
-  }
-else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email.value))
-  {
-    return (true)
-  }
-    alert("You have entered an invalid email address!")
-    return (false)
-}
-  
-</script>
+
 <link rel="stylesheet" type="text/css" href="ak.css">
 
 </head>
@@ -50,19 +24,21 @@ else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email.value
                 <a href="login.html#container1">Login</a>
                 <a href="contact.html">Contact Us</a>
                 <a href="admin.html">admin login</a>
+                <a href="index.html">logout</a>
             </nav>
        
         
     </div>
     <div>
-        <form action="register.jsp" method="Post" name="myform" onsubmit="return validateform()" id="regform"> 
-        <h1>Registration form</h1>
-         Name:     <input type="text" name="uname"><br><br> 
-         Email:    <input type="email" name="email"><br><br>
-          Password: <input type="password" name="pass"><br><br> 
+        <center><p><h1>Welcome, <%=session.getAttribute("username")%></h1></p></center>
+
+
+<form action="showcomplain.jsp" method="Post" name="myform" id="regform"> 
+        <h3>Enter details to see complains</h3>
+        
             
-          <label for="class">Choose your class:</label>
-          <select id="class" name="class" form="regform">
+         <label for="Class">Choose your Class:</label>
+          <select id="Class" name="Class" form="regform">
                     <option value="FY">First year</option>
                     <option value="SE">Second Year</option>
                     <option value="TE">Third Year</option>
@@ -79,10 +55,10 @@ else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email.value
                     <option value="First year">First Year</option>
                    
           </select><br><br>
+        
          <input type="reset" value="reset">  
-         <input type="submit" value="register"> 
+         <input type="submit" value="submit"> 
         </form>
-        Already Registered ::<a href="login.html">login</a>
         </div>
         <div class="fixed-footer">
         <div class="container"><center>Copyright &copy; to Akash Kasliwal</center></div>        
